@@ -1,0 +1,21 @@
+# Three commonly used functions in Data Science are the following: max(), min(), and mean()
+
+# max() function finds the highest value in an array
+average_pulse_max = max(80, 85, 90, 95, 100, 105, 110, 115, 120, 125)
+print(average_pulse_max)
+# In which this will display 125 to the console
+
+# min() functions finds the lowest value in an array
+average_pulse_min = min(80, 85, 90, 95, 100, 105, 110, 115, 120, 125)
+print(average_pulse_min)
+# In which this will display 80 to the console
+
+# mean() is a Numpy function used to find the average value of an array
+# Numpy is another library in Python that's used for working with arrays
+# We first import numpy library as np
+import numpy as np
+Calorie_burnage = [240, 250, 260, 270, 280, 290, 300, 310, 320, 330]
+# In the next statement, we put np in front of mean so that way Python knows to activate the mean() function from the Nump library
+average_calories_burned = np.mean(Calorie_burnage)
+print(average_calories_burned)
+# Which will output 285.0 to the console
