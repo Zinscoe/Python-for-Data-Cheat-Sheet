@@ -1,0 +1,42 @@
+#  Extracting and Reading Data with Pandas
+
+# We first import the pandas library as pd
+import pandas as pd
+
+# Then we use the read_csv() function from the pandas library to import a CSV file and assign it to the 'health_data' variable
+health_data = pd.read_csv("data.csv", header = 0, sep = ",")
+
+# In the read_csv() parenthese I added more information and will go over it now
+# "data.csv" is the CSV file we are reading
+# 'header = 0' means that the headers for the variable names are found in the first row since 0 means the first row in Python
+# 'sep = ","' means that the "," is being used as a separator between the values in the CSV(comma separated value) file.
+
+# If you have a large CSV file, you can use the head() function to show the top 5 rows:
+import pandas as pd
+health_data = pd.read_csv("data.csv", header = 0, sep = ",")
+print(health_data.head())
+
+#     Data Cleaning
+
+# When lookoing at imported data, sometimes the data is considered "dirty" with wrong or unregistered values such as: blank fields, non-numeric values like 9 000 because it's considered
+# non-numeric due to the space separator and even NaN(Not a Number)
+
+# When we load data sets using Pandas, all blank cells are automatically converted into 'NaN' values
+# To remove these NaN values we use the dropna() function like the following:
+health_data.dropna(axis = 0, inplace = True)
+print(health_data)
+# Removing the NaN values gives us a clean data set that can be analyzed.
+# 'axis = 0' in the dropna() function means that we want to remove all rows that have a NaN value
+# 'inplace=True' in the dropna() function means that the data is removed/replaced in that specific place
+
+#     Data Types
+
+# We can use the info() function to list the data types within the data set such as:
+print(health_data.info())
+# this will give us the number of the rows column, a Name of the Columns, and Dtype(data type) of the values such as
+# Float64, and Objects.
+# Unfortunately, we can't use Objects to calculate and perform analysis. So we have to convert the type object to float64. (Float64 is a number with a decimal in Python.)
+# In this case, we can use the astype() function to convert the data into float64.
+health_data["Average_Pulse"] = health_data["Average_Pulse"].astype(float)
+health_data["Max_Pulse"] = health_data["Max_Pulse"].astype(float)
+print(health_data.info())
