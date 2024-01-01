@@ -1,0 +1,23 @@
+# Importing the Pandas Library as pd
+import pandas as pd
+
+# Define the data with columns and rows in a variable that's named 'd'
+# 'col1', 'col2', 'col3' are the columns and the rows are the data in the brackets []
+d = {'col1': [1, 2, 3, 4, 7], 'col2': [4, 5, 6, 9, 5], 'col3': [7, 8, 12, 1, 11]}
+
+# Next we create a dataframe using the function pd.DataFrame() from the Pandas(pd) library and assign that to the 'df' variable
+# and we put in the () 'data = d' which lets the function know to use the data from the d variable
+df = pd.DataFrame(data = d)
+
+# Then we print out the dataframe(df) to the console
+print(df)
+
+# We can count the number of columns in the dataframe(df) by doing the following:
+count_column = df.shape[1]
+print(count_column)
+# Which in this case will let us know there's 3 columns
+
+# We can also count the number of rows in the dataframe(df) by doing the following:
+count_row = df.shape[0]
+print(count_row)
+# Which in this case will let us know it's 5 rows
